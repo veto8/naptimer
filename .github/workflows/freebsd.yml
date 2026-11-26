@@ -11,12 +11,11 @@ permissions:
 
 jobs:
   build_freebsd:
+    # NAppGUI 1.7 rejects CMAKE_SYSTEM_NAME=FreeBSD ("Unknown Platform").
+    if: false
     runs-on: ubuntu-22.04
     name: FreeBSD (unsupported)
 
     steps:
       - name: Skip
-        run: |
-          echo "NAppGUI 1.7 does not support FreeBSD."
-          echo "NAppCompilers.cmake rejects CMAKE_SYSTEM_NAME=FreeBSD with 'Unknown Platform'."
-          echo "Skipping the FreeBSD build until NAppGUI adds upstream FreeBSD support."
+        run: echo "FreeBSD is unsupported by NAppGUI 1.7; job is disabled."
